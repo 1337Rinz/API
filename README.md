@@ -42,19 +42,55 @@ You should send a JSON payload with the request that contains the input data for
     "Trải nghiệm mới": [int],
     "Vẻ đẹp thiên": [int]
 }
+```
 Replace [int] with the appropriate integer values for each field.
 
 
 Mapping
 Here is the mapping for categorical variables:
 ```json
+Mapping
 {
 "sex": {"Nữ": 0, "Nam": 1}
 "Bạn đi với": {"Một Mình": 0, "Người yêu": 1, "Bạn Bè": 2, "Gia đình": 3}
 "Visiting time": {"2 ngày 1 đêm": 2, "3 ngày 2 đêm": 3, "4 ngày 3 đêm": 4, "5 ngày 4 đêm": 5}
 "Desired amount": {"Từ 1 đến 3 triệu": 0, "3,5 triệu": 1, "Từ 3 đến 5 Triệu": 2, "Từ 5 đến 7 triệu": 3, "Trên 10 triệu": 4}
 }
+```
 The API will return a List response with the prediction.
+ex:
 
+input: input 
+['AGE', 'Bạn đi với', 'Visiting time', 'sex', 'Desired amount', 'Di Tích Lịch Sử', 'Món ăn ngon', 'Trải nghiệm mới', 'Vẻ đẹp thiên']
+```json
+{
+    "AGE": 23,
+    "Bạn đi với": 3,
+    "Visiting time": 5,
+    "sex": 1,
+    "Desired amount": 0,
+    "Di Tích Lịch Sử": 1,
+    "Món ăn ngon": 1,
+    "Trải nghiệm mới": 0,
+    "Vẻ đẹp thiên": 0
+}
+```
+
+output: 10 label ['Cố đô Huế', 'Lăng Minh Mạng', 'Cung An Định Huế', 'Cầu Tràng Tiền', 'Làng Hương Xuân Thuỷ', 'Chùa Từ Hiếu', 'Chùa Thiên Mụ', 'Vườn hoa Bách Vân', 'Đồi Vọng Cảnh', 'Chợ Đông Ba']
+```json
+[
+    [   1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1   
+    ]   
+]
+```
 Contact
 If you have any questions or need further information, please feel free to contact 
